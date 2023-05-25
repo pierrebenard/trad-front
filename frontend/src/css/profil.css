@@ -1,0 +1,35 @@
+.contenu-global {
+    display: flex;
+    justify-content: center;
+}
+
+.cadre-infos {
+    top: 200px;
+    position: relative;
+    display: block;
+    padding: 50px;
+    border: 5px solid rgb(186, 211, 232);
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.326);
+}
+
+.cadre-infos h1 {
+    font-size: 3rem;
+}
+
+.deconnexion {
+    transition: all 0.3s;
+    color: rgb(255, 255, 255);
+    background-color: rgb(222, 21, 21);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 1.5vh 2vw;
+    margin-top: 20px;
+}
+
+.deconnexion:hover {
+    filter: brightness(110%);
+    scale: 105%;
+}

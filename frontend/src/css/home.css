@@ -1,0 +1,57 @@
+.tout {
+    background-image: url(../../ressource/fond.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/*---------- LOGO ----------*/
+
+.logo {
+    padding: 200px 0 50px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.logo h1 {
+    animation: arrive 1s ease forwards;
+    font-size: 5rem;
+    font-weight: 900;
+    color: white;
+}
+
+/*---------- COMMENCER ----------*/
+
+.commencer {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.commencer .bouton {
+    animation: arrive 1s ease forwards;
+    transition: all 0.3s;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1.5vh 2vw;
+}
+
+.commencer .bouton:hover {
+    box-shadow: 0 0 10px white;
+    scale: 105%;
+}
+
+/*---------- ANIMATION ----------*/
+
+@keyframes arrive {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
