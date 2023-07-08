@@ -55,41 +55,69 @@ const ProfilCaseRadio = ({ selectedOption }) => {
   };
 
   const soumissionsFormulaire = async () => {
-    // Premier sélecteur
-    let argument = "";
+
+    let argumentDate = "";
     if (otherSelectedOption === "aujourd'hui") {
-      argument = "aujourd'hui";
-      console.log(argument)
+      argumentDate = "aujourd'hui";
+      console.log(argumentDate)
     } else if (otherSelectedOption === "semaineEnCours") {
-      argument = "semaineEnCours";
-      console.log(argument)
+      argumentDate = "semaineEnCours";
+      console.log(argumentDate)
     } else if (otherSelectedOption === "semaineGlissante") {
-      argument = "semaineGlissante";
-      console.log(argument)
+      argumentDate = "semaineGlissante";
+      console.log(argumentDate)
     } else if (otherSelectedOption === "moisGlissant") {
-      argument = "moisGlissant";
-      console.log(argument)
+      argumentDate = "moisGlissant";
+      console.log(argumentDate)
     } else if (otherSelectedOption === "moisEnCours") {
-      argument = "moisEnCours";
-      console.log(argument)
+      argumentDate = "moisEnCours";
+      console.log(argumentDate)
     }
 
     // Deuxième sélecteur
-    let secondArgument = "";
+    let argumentFiltre = "";
     if (secondSelectedOption === "option1") {
-      secondArgument = "valeur1";
-      console.log(secondArgument)
+      argumentFiltre = "valeur1";
+      console.log(argumentFiltre)
     } else if (secondSelectedOption === "option2") {
-      secondArgument = "valeur2";
-      console.log(secondArgument)
+      argumentFiltre = "valeur2";
+      console.log(argumentFiltre)
     } else if (secondSelectedOption === "option3") {
-      secondArgument = "valeur3";
-      console.log(secondArgument)
+      argumentFiltre = "valeur3";
+      console.log(argumentFiltre)
     }
 
-    // Appel à l'API en utilisant les arguments sélectionnés
-    // ...
+    // appel à l'api
+    if (takeProfit === 'Atteint') {
+      const takeProfitRequeteAtteint = async () => {
+        try {
+          const response = await axios.get(`http://127.0.0.1:5000/TPRatteint?date=${argumentDate}&filtre=${argumentFiltre}`);
+          console.log(response.data);
+          return response.data;
+        } catch (error) {console.error(error); throw error;}
+      };
+      await takeProfitRequeteAtteint();
+    } else if (takeProfit === 'Dépassé') {
+    } else if (takeProfit === 'Non atteint') {
+      const takeProfitRequeteAtteint = async () => {
+        try {
+          const response = await axios.get(`http://127.0.0.1:5000/TPRnonAtteint?date=${argumentDate}&filtre=${argumentFiltre}`);
+          console.log(response.data);
+          return response.data;
+        } catch (error) {console.error(error); throw error;}
+      };
+      await takeProfitRequeteAtteint();
+    }
 
+    if (stopLoss === 'Atteint') {
+      console.log('Stop loss atteint');
+    } else if (stopLoss === 'Partiel') {
+      console.log('Stop loss partiel');
+    }
+
+    if (rrRange === '-0.5RR < BE < 0.5RR') {
+      console.log('RR range valide');
+    }
   };
 
   return (
